@@ -1,1 +1,70 @@
 # Desafio-Super-Trunfo---Tema-3
+#include <stdio.h>
+
+/*
+ * DESAFIO SUPER TRUNFO - TEMA 3: DESENVOLVENDO A LÓGICA
+ * Objetivo: Implementar a lógica de comparação entre duas cartas cadastradas.
+ * Nível: Novato
+ */
+
+int main() {
+    // Variáveis para a Carta 1
+    char estado1[50], codigo1[10], cidade1[50];
+    unsigned long int populacao1;
+    float area1, pib1, densidade1, pibPerCapita1;
+    int pontosTuristicos1;
+
+    // Variáveis para a Carta 2
+    char estado2[50], codigo2[10], cidade2[50];
+    unsigned long int populacao2;
+    float area2, pib2, densidade2, pibPerCapita2;
+    int pontosTuristicos2;
+
+    // --- ENTRADA DE DADOS: CARTA 1 ---
+    printf("--- Cadastro da Carta 1 ---\n");
+    printf("Estado: "); scanf("%s", estado1);
+    printf("Código: "); scanf("%s", codigo1);
+    printf("Cidade: "); scanf("%s", cidade1);
+    printf("População: "); scanf("%lu", &populacao1);
+    printf("Área (km²): "); scanf("%f", &area1);
+    printf("PIB: "); scanf("%f", &pib1);
+    printf("Pontos Turísticos: "); scanf("%d", &pontosTuristicos1);
+
+    // Cálculos da Carta 1
+    densidade1 = (float)populacao1 / area1;
+    pibPerCapita1 = pib1 / (float)populacao1;
+
+    printf("\n");
+
+    // --- ENTRADA DE DADOS: CARTA 2 ---
+    printf("--- Cadastro da Carta 2 ---\n");
+    printf("Estado: "); scanf("%s", estado2);
+    printf("Código: "); scanf("%s", codigo2);
+    printf("Cidade: "); scanf("%s", cidade2);
+    printf("População: "); scanf("%lu", &populacao2);
+    printf("Área (km²): "); scanf("%f", &area2);
+    printf("PIB: "); scanf("%f", &pib2);
+    printf("Pontos Turísticos: "); scanf("%d", &pontosTuristicos2);
+
+    // Cálculos da Carta 2
+    densidade2 = (float)populacao2 / area2;
+    pibPerCapita2 = pib2 / (float)populacao2;
+
+    // --- EXIBIÇÃO E COMPARAÇÃO ---
+    // Atributo de comparação: População (como no exemplo do print)
+    
+    printf("\n### Comparação de Cartas (Atributo: População) ###\n\n");
+    printf("Carta 1 - %s (%s): %lu\n", cidade1, estado1, populacao1);
+    printf("Carta 2 - %s (%s): %lu\n", cidade2, estado2, populacao2);
+
+    // Lógica de Decisão if-else
+    if (populacao1 > populacao2) {
+        printf("\nResultado: Carta 1 (%s) venceu!\n", cidade1);
+    } else if (populacao2 > populacao1) {
+        printf("\nResultado: Carta 2 (%s) venceu!\n", cidade2);
+    } else {
+        printf("\nResultado: Empate!\n");
+    }
+
+    return 0;
+}
